@@ -12,7 +12,9 @@ var options = require('rc')('geohash-poly', {
   geocode: false
 })
 
-options.coords = JSON.parse(options._);
+// options.coords = JSON.parse(options._);
+var fs = require('fs');
+options.coords = JSON.parse(fs.readFileSync('/dev/stdin').toString());
 
 var output = function(i, lat, lon){
   var obj = {hash: i};
